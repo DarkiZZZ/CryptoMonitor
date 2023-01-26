@@ -2,7 +2,6 @@ package ru.msokolov.cryptomonitorapp.data.network
 
 import ru.msokolov.cryptomonitorapp.data.network.models.CoinNamesListDto
 import ru.msokolov.cryptomonitorapp.data.network.models.CoinInfoJsonContainerDto
-import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
