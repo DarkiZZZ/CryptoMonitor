@@ -23,7 +23,7 @@ interface ApiService {
     ): Single<CoinPriceInfoRawData>
 
     companion object {
-        private const val QUERY_PARAM_API_KEY = "api_key"
+        private const val QUERY_PARAM_API_KEY = "6cffdc987d403d61eac4764e4165a4e484e70af19d4a90af84e2f5d7179349fd"
         private const val QUERY_PARAM_LIMIT = "limit"
         private const val QUERY_PARAM_TO_SYMBOL = "tsym"
         private const val QUERY_PARAM_TO_SYMBOLS = "tsyms"

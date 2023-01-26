@@ -11,7 +11,12 @@ import kotlinx.android.synthetic.main.activity_coin_detail.*
 
 class CoinDetailActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: CoinViewModel
+    private val viewModelFactory by lazy {
+        CoinViewModelFactory(application)
+    }
+    private val viewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +26,6 @@ class CoinDetailActivity : AppCompatActivity() {
             return
         }
         val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL)
-        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
         viewModel.getDetailInfo(fromSymbol!!).observe(this, Observer {
             tvPrice.text = it.price
             tvMinPrice.text = it.lowDay

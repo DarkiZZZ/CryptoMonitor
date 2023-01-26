@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import ru.msokolov.cryptomonitorapp.api.ApiFactory
 import ru.msokolov.cryptomonitorapp.database.AppDatabase
 import ru.msokolov.cryptomonitorapp.pojo.CoinPriceInfo
@@ -13,7 +14,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-class CoinViewModel(application: Application) : AndroidViewModel(application) {
+class CoinViewModel(application: Application) : ViewModel() {
 
     private val db = AppDatabase.getInstance(application)
     private val compositeDisposable = CompositeDisposable()
