@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp.pojo
+package ru.msokolov.cryptomonitorapp.data.models
 
 import com.google.gson.JsonObject
 import com.google.gson.annotations.Expose

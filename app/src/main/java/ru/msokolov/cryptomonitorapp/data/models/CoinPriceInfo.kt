@@ -1,8 +1,8 @@
-package ru.msokolov.cryptomonitorapp.pojo
+package ru.msokolov.cryptomonitorapp.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import ru.msokolov.cryptomonitorapp.api.ApiFactory.BASE_IMAGE_URL
+import ru.msokolov.cryptomonitorapp.data.network.ApiFactory.BASE_IMAGE_URL
 import ru.msokolov.cryptomonitorapp.utils.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

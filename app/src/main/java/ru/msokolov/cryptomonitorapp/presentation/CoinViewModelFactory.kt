@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp
+package ru.msokolov.cryptomonitorapp.presentation
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

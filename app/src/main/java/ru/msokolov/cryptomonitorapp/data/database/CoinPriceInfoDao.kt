@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ru.msokolov.cryptomonitorapp.pojo.CoinPriceInfo
+import ru.msokolov.cryptomonitorapp.data.models.CoinPriceInfo
 
 @Dao
 interface CoinPriceInfoDao {

@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp
+package ru.msokolov.cryptomonitorapp.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_coin_detail.*
+import ru.msokolov.cryptomonitorapp.R
 
 class CoinDetailActivity : AppCompatActivity() {
 

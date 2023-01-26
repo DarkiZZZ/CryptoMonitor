@@ -1,13 +1,13 @@
-package ru.msokolov.cryptomonitorapp
+package ru.msokolov.cryptomonitorapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_coin_price_list.*
-import ru.msokolov.cryptomonitorapp.adapters.CoinInfoAdapter
-import ru.msokolov.cryptomonitorapp.pojo.CoinPriceInfo
+import ru.msokolov.cryptomonitorapp.R
+import ru.msokolov.cryptomonitorapp.presentation.adapters.CoinInfoAdapter
+import ru.msokolov.cryptomonitorapp.data.models.CoinPriceInfo
 
 class CoinPriceListActivity : AppCompatActivity() {
 

@@ -1,14 +1,13 @@
-package ru.msokolov.cryptomonitorapp
+package ru.msokolov.cryptomonitorapp.presentation
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import ru.msokolov.cryptomonitorapp.api.ApiFactory
+import ru.msokolov.cryptomonitorapp.data.network.ApiFactory
 import ru.msokolov.cryptomonitorapp.database.AppDatabase
-import ru.msokolov.cryptomonitorapp.pojo.CoinPriceInfo
-import ru.msokolov.cryptomonitorapp.pojo.CoinPriceInfoRawData
+import ru.msokolov.cryptomonitorapp.data.models.CoinPriceInfo
+import ru.msokolov.cryptomonitorapp.data.models.CoinPriceInfoRawData
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
