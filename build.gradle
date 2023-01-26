@@ -38,4 +38,5 @@ ext {
 
     dependencies.coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     dependencies.coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    dependencies.coroutinesVM = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
 }

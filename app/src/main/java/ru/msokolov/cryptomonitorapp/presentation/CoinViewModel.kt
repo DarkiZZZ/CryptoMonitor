@@ -1,73 +1,35 @@
 package ru.msokolov.cryptomonitorapp.presentation
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import ru.msokolov.cryptomonitorapp.data.network.ApiFactory
-import ru.msokolov.cryptomonitorapp.data.database.AppDatabase
-import ru.msokolov.cryptomonitorapp.data.network.models.CoinInfoDto
-import ru.msokolov.cryptomonitorapp.data.network.models.CoinInfoJsonContainerDto
-import com.google.gson.Gson
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import ru.msokolov.cryptomonitorapp.data.repository.CoinRepositoryImpl
+import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
+import ru.msokolov.cryptomonitorapp.domain.GetCoinInfoListUseCase
+import ru.msokolov.cryptomonitorapp.domain.GetCoinInfoUseCase
+import ru.msokolov.cryptomonitorapp.domain.LoadDataUseCase
 
 class CoinViewModel(application: Application) : ViewModel() {
 
-    private val db = AppDatabase.getInstance(application)
-    private val compositeDisposable = CompositeDisposable()
+    private val repository = CoinRepositoryImpl(application)
 
-    val priceList = db.coinPriceInfoDao().getPriceList()
+    private val getCoinInfoListUseCase = GetCoinInfoListUseCase(repository)
+    private val getCoinInfoUseCase = GetCoinInfoUseCase(repository)
+    private val loadDataUseCase = LoadDataUseCase(repository)
 
-    fun getDetailInfo(fSym: String): LiveData<CoinInfoDto> {
-        return db.coinPriceInfoDao().getPriceInfoAboutCoin(fSym)
+    val coinInfoList = getCoinInfoListUseCase()
+
+    fun getDetailInfo(fromSymbol: String): LiveData<CoinInfoEntity> {
+        return getCoinInfoUseCase(fromSymbol = fromSymbol)
     }
 
     init {
-        loadData()
-    }
-
-    private fun loadData() {
-        val disposable = ApiFactory.apiService.getTopCoinsInfo(limit = 50)
-            .map { it.names?.map { it.coinNameDto?.name }?.joinToString(",") }
-            .flatMap { ApiFactory.apiService.getFullPriceList(fSyms = it) }
-            .map { getPriceListFromRawData(it) }
-            .delaySubscription(10, TimeUnit.SECONDS)
-            .repeat()
-            .retry()
-            .subscribeOn(Schedulers.io())
-            .subscribe({
-                db.coinPriceInfoDao().insertPriceList(it)
-                Log.d("TEST_OF_LOADING_DATA", "Success: $it")
-            }, {
-                Log.d("TEST_OF_LOADING_DATA", "Failure: ${it.message}")
-            })
-        compositeDisposable.add(disposable)
-    }
-
-    private fun getPriceListFromRawData(
-        coinInfoJsonContainerDto: CoinInfoJsonContainerDto
-    ): List<CoinInfoDto> {
-        val result = ArrayList<CoinInfoDto>()
-        val jsonObject = coinInfoJsonContainerDto.json ?: return result
-        val coinKeySet = jsonObject.keySet()
-        for (coinKey in coinKeySet) {
-            val currencyJson = jsonObject.getAsJsonObject(coinKey)
-            val currencyKeySet = currencyJson.keySet()
-            for (currencyKey in currencyKeySet) {
-                val priceInfo = Gson().fromJson(
-                    currencyJson.getAsJsonObject(currencyKey),
-                    CoinInfoDto::class.java
-                )
-                result.add(priceInfo)
-            }
+        viewModelScope.launch{
+            loadDataUseCase()
         }
-        return result
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable.dispose()
-    }
 }

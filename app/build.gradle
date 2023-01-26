@@ -53,6 +53,7 @@ dependencies {
 
     implementation rootProject.ext.dependencies.coroutinesCore
     implementation rootProject.ext.dependencies.coroutinesAndroid
+    implementation rootProject.ext.dependencies.coroutinesVM
 
 
     testImplementation rootProject.ext.dependencies.junit
