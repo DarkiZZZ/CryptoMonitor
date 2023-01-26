@@ -6,8 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_coin_detail.*
 import ru.msokolov.cryptomonitorapp.R
+import ru.msokolov.cryptomonitorapp.databinding.ActivityCoinDetailBinding
 
 class CoinDetailActivity : AppCompatActivity() {
 
@@ -16,6 +16,10 @@ class CoinDetailActivity : AppCompatActivity() {
     }
     private val viewModel by lazy {
         ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
+    }
+
+    private val binding by lazy{
+        ActivityCoinDetailBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,14 +31,17 @@ class CoinDetailActivity : AppCompatActivity() {
         }
         val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL)
         viewModel.getDetailInfo(fromSymbol!!).observe(this) {
-            tvPrice.text = it.price
-            tvMinPrice.text = it.lowDay
-            tvMaxPrice.text = it.highDay
-            tvLastMarket.text = it.lastMarket
-            tvLastUpdate.text = it.lastUpdate
-            tvFromSymbol.text = it.fromSymbol
-            tvToSymbol.text = it.toSymbol
-            Picasso.get().load(it.imageUrl).into(ivLogoCoin)
+            with(binding){
+                tvPrice.text = it.price
+                tvMinPrice.text = it.lowDay
+                tvMaxPrice.text = it.highDay
+                tvLastMarket.text = it.lastMarket
+                tvLastUpdate.text = it.lastUpdate
+                tvFromSymbol.text = it.fromSymbol
+                tvToSymbol.text = it.toSymbol
+                Picasso.get().load(it.imageUrl).into(ivLogoCoin)
+            }
+
         }
     }
 
