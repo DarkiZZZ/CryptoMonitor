@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp.presentation
+package ru.msokolov.cryptomonitorapp.presentation.detail
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import ru.msokolov.cryptomonitorapp.databinding.ActivityCoinDetailBinding
+import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
+import ru.msokolov.cryptomonitorapp.presentation.CoinViewModelFactory
 
 class CoinDetailActivity : AppCompatActivity() {
 

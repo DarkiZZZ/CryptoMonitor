@@ -1,11 +1,14 @@
-package ru.msokolov.cryptomonitorapp.presentation
+package ru.msokolov.cryptomonitorapp.presentation.list
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import ru.msokolov.cryptomonitorapp.databinding.ActivityCoinPriceListBinding
 import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
-import ru.msokolov.cryptomonitorapp.presentation.adapter.CoinInfoAdapter
+import ru.msokolov.cryptomonitorapp.presentation.detail.CoinDetailActivity
+import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
+import ru.msokolov.cryptomonitorapp.presentation.CoinViewModelFactory
+import ru.msokolov.cryptomonitorapp.presentation.list.adapter.CoinInfoAdapter
 
 class CoinPriceListActivity : AppCompatActivity() {
 
@@ -32,9 +35,12 @@ class CoinPriceListActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        binding.rvCoinPriceList.adapter = adapter
+        binding.apply {
+            rvCoinPriceList.adapter = adapter
+            rvCoinPriceList.itemAnimator = null
+        }
         viewModel.coinInfoList.observe(this){
-            adapter.coinInfoList = it
+            adapter.submitList(it)
         }
     }
 }

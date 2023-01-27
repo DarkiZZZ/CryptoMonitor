@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp.presentation.adapter
+package ru.msokolov.cryptomonitorapp.presentation.list.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import ru.msokolov.cryptomonitorapp.databinding.ItemCoinInfoBinding
