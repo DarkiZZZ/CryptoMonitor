@@ -1,8 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
+    id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -57,6 +58,9 @@ dependencies {
 
     implementation rootProject.ext.dependencies.retrofitRuntime
     implementation rootProject.ext.dependencies.retrofitGson
+
+    implementation rootProject.ext.dependencies.navKtx
+    implementation rootProject.ext.dependencies.navUiKtx
 
     implementation rootProject.ext.dependencies.coroutinesCore
     implementation rootProject.ext.dependencies.coroutinesAndroid
