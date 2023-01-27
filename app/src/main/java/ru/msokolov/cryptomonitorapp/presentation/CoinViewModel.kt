@@ -3,9 +3,6 @@ package ru.msokolov.cryptomonitorapp.presentation
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import ru.msokolov.cryptomonitorapp.data.repository.CoinRepositoryImpl
 import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
 import ru.msokolov.cryptomonitorapp.domain.GetCoinInfoListUseCase
@@ -27,9 +24,7 @@ class CoinViewModel(application: Application) : ViewModel() {
     }
 
     init {
-        viewModelScope.launch{
-            loadDataUseCase()
-        }
+        loadDataUseCase()
     }
 
 }
