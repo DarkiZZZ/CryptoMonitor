@@ -8,18 +8,17 @@
     <fragment
         android:id="@+id/coinPriceListFragment"
         android:name="ru.msokolov.cryptomonitorapp.presentation.list.CoinPriceListFragment"
-        android:label="fragment_coin_price_list"
+        android:label="Crypto Monitor"
         tools:layout="@layout/fragment_coin_price_list" >
         <action
             android:id="@+id/action_coinPriceListFragment_to_coinDetailFragment"
             app:destination="@id/coinDetailFragment"
-            app:popUpTo="@id/coinPriceListFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/coinDetailFragment"
         android:name="ru.msokolov.cryptomonitorapp.presentation.detail.CoinDetailFragment"
-        android:label="CoinDetailFragment" >
+        android:label="Detailed information" >
         <argument
             android:name="fromSymbol"
             app:argType="string" />
