@@ -14,9 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CryptoMonitorApp"
         tools:targetApi="31">
-        <activity android:name=".presentation.detail.CoinDetailActivity" />
         <activity
-            android:name=".presentation.list.CoinPriceListActivity"
+            android:name=".presentation.list.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
