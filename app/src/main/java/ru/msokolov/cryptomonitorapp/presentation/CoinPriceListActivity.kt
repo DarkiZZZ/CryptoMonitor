@@ -3,10 +3,9 @@ package ru.msokolov.cryptomonitorapp.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import ru.msokolov.cryptomonitorapp.R
 import ru.msokolov.cryptomonitorapp.databinding.ActivityCoinPriceListBinding
 import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
-import ru.msokolov.cryptomonitorapp.presentation.adapters.CoinInfoAdapter
+import ru.msokolov.cryptomonitorapp.presentation.adapter.CoinInfoAdapter
 
 class CoinPriceListActivity : AppCompatActivity() {
 
@@ -22,7 +21,7 @@ class CoinPriceListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_coin_price_list)
+        setContentView(binding.root)
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinInfoEntity: CoinInfoEntity) {
