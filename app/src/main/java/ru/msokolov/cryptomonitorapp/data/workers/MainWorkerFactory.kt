@@ -4,11 +4,13 @@ import android.content.Context
 import androidx.work.ListenableWorker
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
+import ru.msokolov.cryptomonitorapp.data.workers.refreshdata.ChildRefreshDataWorkerFactory
+import ru.msokolov.cryptomonitorapp.data.workers.refreshdata.RefreshDataWorker
 import javax.inject.Inject
 import javax.inject.Provider
 
-class CryptoWorkerFactory @Inject constructor(
-    private val workerProviders: @JvmSuppressWildcards Map<Class<out ListenableWorker>, Provider<ChildWorkerFactory>>
+class MainWorkerFactory @Inject constructor(
+    private val workerProviders: @JvmSuppressWildcards Map<Class<out ListenableWorker>, Provider<ChildRefreshDataWorkerFactory>>
 ) : WorkerFactory() {
 
     override fun createWorker(
@@ -16,12 +18,12 @@ class CryptoWorkerFactory @Inject constructor(
         workerClassName: String,
         workerParameters: WorkerParameters
     ): ListenableWorker? {
-        when(workerClassName){
+        return when(workerClassName){
             RefreshDataWorker::class.qualifiedName -> {
                 val childWorkerFactory = workerProviders[RefreshDataWorker::class.java]?.get()
-                return childWorkerFactory?.create(appContext, workerParameters)
+                childWorkerFactory?.create(appContext, workerParameters) // return value
             }
-            else -> return null
+            else -> null
         }
     }
 }

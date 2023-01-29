@@ -1,10 +1,10 @@
-package ru.msokolov.cryptomonitorapp.data.workers
+package ru.msokolov.cryptomonitorapp.data.workers.refreshdata
 
 import android.content.Context
 import androidx.work.ListenableWorker
 import androidx.work.WorkerParameters
 
-interface ChildWorkerFactory {
+interface ChildRefreshDataWorkerFactory {
 
     fun create(
         context: Context,

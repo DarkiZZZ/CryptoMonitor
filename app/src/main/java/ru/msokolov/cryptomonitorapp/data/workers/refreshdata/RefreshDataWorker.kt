@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp.data.workers
+package ru.msokolov.cryptomonitorapp.data.workers.refreshdata
 
 import android.content.Context
 import android.util.Log
@@ -45,11 +45,11 @@ class RefreshDataWorker (
     }
 
 
-    class Factory @Inject constructor(
+    class FactoryRefreshData @Inject constructor(
         private val coinInfoDao: CoinInfoDao,
         private val apiService: ApiService,
         private val mapper: CoinMapper
-    ) : ChildWorkerFactory {
+    ) : ChildRefreshDataWorkerFactory {
 
         override fun create(
             context: Context,
