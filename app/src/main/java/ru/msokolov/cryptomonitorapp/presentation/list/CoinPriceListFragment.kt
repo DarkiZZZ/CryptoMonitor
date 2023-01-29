@@ -1,5 +1,6 @@
 package ru.msokolov.cryptomonitorapp.presentation.list
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +11,16 @@ import androidx.navigation.fragment.findNavController
 import ru.msokolov.cryptomonitorapp.databinding.FragmentCoinPriceListBinding
 import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
 import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
-import ru.msokolov.cryptomonitorapp.presentation.CoinViewModelFactory
+import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
+import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
 import ru.msokolov.cryptomonitorapp.presentation.list.adapter.CoinInfoAdapter
+import javax.inject.Inject
 
 class CoinPriceListFragment : Fragment() {
 
-    private val viewModelFactory by lazy {
-        CoinViewModelFactory(requireActivity().application)
-    }
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
     private val viewModel by lazy {
         ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
     }
@@ -25,8 +28,16 @@ class CoinPriceListFragment : Fragment() {
     private val binding: FragmentCoinPriceListBinding
         get() = _binding ?: throw RuntimeException("FragmentCoinPriceListBinding is NULL")
 
+    private val component by lazy {
+        (requireActivity().application as CryptoApplication).component
+    }
+
     private lateinit var coinAdapter: CoinInfoAdapter
 
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

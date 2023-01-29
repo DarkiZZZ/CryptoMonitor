@@ -1,5 +1,6 @@
 package ru.msokolov.cryptomonitorapp.presentation.detail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,15 +12,21 @@ import com.squareup.picasso.Picasso
 import ru.msokolov.cryptomonitorapp.databinding.FragmentCoinDetailBinding
 import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
 import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
-import ru.msokolov.cryptomonitorapp.presentation.CoinViewModelFactory
+import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
+import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
+import javax.inject.Inject
 
 class CoinDetailFragment : Fragment() {
 
-    private val viewModelFactory by lazy {
-        CoinViewModelFactory(requireActivity().application)
-    }
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
     private val viewModel by lazy {
         ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
+    }
+
+    private val component by lazy {
+        (requireActivity().application as CryptoApplication).component
     }
 
     private val args by navArgs<CoinDetailFragmentArgs>()
@@ -28,6 +35,10 @@ class CoinDetailFragment : Fragment() {
     private val binding: FragmentCoinDetailBinding
         get() = _binding ?: throw RuntimeException("FragmentCoinDetailBinding is NULL")
 
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
