@@ -7,7 +7,7 @@ import dagger.Provides
 import ru.msokolov.cryptomonitorapp.data.database.AppDatabase
 import ru.msokolov.cryptomonitorapp.data.database.CoinInfoDao
 import ru.msokolov.cryptomonitorapp.data.network.ApiFactory
-import ru.msokolov.cryptomonitorapp.data.network.ApiService
+import ru.msokolov.cryptomonitorapp.data.network.crypto.CryptoApiService
 import ru.msokolov.cryptomonitorapp.data.repository.CoinRepositoryImpl
 import ru.msokolov.cryptomonitorapp.domain.CoinRepository
 
@@ -30,8 +30,8 @@ interface DataModule {
 
         @Provides
         @ApplicationScope
-        fun provideApiService(): ApiService{
-            return ApiFactory.apiService
+        fun provideApiService(): CryptoApiService {
+            return ApiFactory.cryptoApiService
         }
     }
 }

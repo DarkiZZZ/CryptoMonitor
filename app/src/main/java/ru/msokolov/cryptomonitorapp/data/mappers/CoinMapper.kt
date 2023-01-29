@@ -2,9 +2,9 @@ package ru.msokolov.cryptomonitorapp.data.mappers
 
 import com.google.gson.Gson
 import ru.msokolov.cryptomonitorapp.data.database.CoinInfoDbModel
-import ru.msokolov.cryptomonitorapp.data.network.models.CoinInfoDto
-import ru.msokolov.cryptomonitorapp.data.network.models.CoinInfoJsonContainerDto
-import ru.msokolov.cryptomonitorapp.data.network.models.CoinNamesListDto
+import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinInfoDto
+import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinInfoJsonContainerDto
+import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinNamesListDto
 import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
 import java.sql.Timestamp
 import java.text.SimpleDateFormat

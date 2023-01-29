@@ -1,11 +1,11 @@
-package ru.msokolov.cryptomonitorapp.data.network
+package ru.msokolov.cryptomonitorapp.data.network.crypto
 
-import ru.msokolov.cryptomonitorapp.data.network.models.CoinNamesListDto
-import ru.msokolov.cryptomonitorapp.data.network.models.CoinInfoJsonContainerDto
+import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinNamesListDto
+import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinInfoJsonContainerDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ApiService {
+interface CryptoApiService {
 
     @GET("top/totalvolfull")
     suspend fun getTopCoinsInfo(

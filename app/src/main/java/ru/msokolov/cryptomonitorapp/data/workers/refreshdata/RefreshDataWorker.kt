@@ -6,23 +6,23 @@ import androidx.work.*
 import kotlinx.coroutines.delay
 import ru.msokolov.cryptomonitorapp.data.database.CoinInfoDao
 import ru.msokolov.cryptomonitorapp.data.mappers.CoinMapper
-import ru.msokolov.cryptomonitorapp.data.network.ApiService
+import ru.msokolov.cryptomonitorapp.data.network.crypto.CryptoApiService
 import javax.inject.Inject
 
 class RefreshDataWorker (
     context: Context,
     workerParameters: WorkerParameters,
     private val coinInfoDao: CoinInfoDao,
-    private val apiService: ApiService,
+    private val cryptoApiService: CryptoApiService,
     private val mapper: CoinMapper
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
         while (true) {
             try {
-                val topCoins = apiService.getTopCoinsInfo(limit = 50)
+                val topCoins = cryptoApiService.getTopCoinsInfo(limit = 50)
                 val fromSymbols = mapper.mapNamesListToString(namesList = topCoins)
-                val jsonContainer = apiService.getFullPriceList(fSyms = fromSymbols)
+                val jsonContainer = cryptoApiService.getFullPriceList(fSyms = fromSymbols)
                 val coinInfoDtoList =
                     mapper.mapJsonContainerToCoinInfoList(jsonContainer = jsonContainer)
                 val dbModelList = coinInfoDtoList.map { mapper.mapDtoToDBModel(it) }
@@ -47,7 +47,7 @@ class RefreshDataWorker (
 
     class FactoryRefreshData @Inject constructor(
         private val coinInfoDao: CoinInfoDao,
-        private val apiService: ApiService,
+        private val cryptoApiService: CryptoApiService,
         private val mapper: CoinMapper
     ) : ChildRefreshDataWorkerFactory {
 
@@ -56,7 +56,7 @@ class RefreshDataWorker (
             workerParameters: WorkerParameters
         ): ListenableWorker {
             return RefreshDataWorker(
-                context, workerParameters, coinInfoDao, apiService, mapper
+                context, workerParameters, coinInfoDao, cryptoApiService, mapper
             )
         }
     }
