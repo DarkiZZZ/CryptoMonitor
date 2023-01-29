@@ -7,6 +7,7 @@ import kotlinx.coroutines.delay
 import ru.msokolov.cryptomonitorapp.data.database.CoinInfoDao
 import ru.msokolov.cryptomonitorapp.data.mappers.CoinMapper
 import ru.msokolov.cryptomonitorapp.data.network.crypto.CryptoApiService
+import ru.msokolov.cryptomonitorapp.data.network.currency.CurrencyApiService
 import javax.inject.Inject
 
 class RefreshDataWorker (
@@ -20,6 +21,7 @@ class RefreshDataWorker (
     override suspend fun doWork(): Result {
         while (true) {
             try {
+
                 val topCoins = cryptoApiService.getTopCoinsInfo(limit = 50)
                 val fromSymbols = mapper.mapNamesListToString(namesList = topCoins)
                 val jsonContainer = cryptoApiService.getFullPriceList(fSyms = fromSymbols)
