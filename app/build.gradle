@@ -37,9 +37,6 @@ android {
     buildFeatures{
         viewBinding true
     }
-    viewBinding{
-        enabled = true
-    }
 }
 
 dependencies {
@@ -65,6 +62,11 @@ dependencies {
     implementation rootProject.ext.dependencies.coroutinesCore
     implementation rootProject.ext.dependencies.coroutinesAndroid
     implementation rootProject.ext.dependencies.coroutinesVM
+
+    implementation rootProject.ext.dependencies.dagger
+    implementation rootProject.ext.dependencies.daggerCompiler
+    implementation rootProject.ext.dependencies.daggerAndroid
+    implementation rootProject.ext.dependencies.daggerProccesor
 
 
     testImplementation rootProject.ext.dependencies.junit
