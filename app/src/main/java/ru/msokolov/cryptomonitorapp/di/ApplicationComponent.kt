@@ -8,7 +8,7 @@ import ru.msokolov.cryptomonitorapp.presentation.detail.CoinDetailFragment
 import ru.msokolov.cryptomonitorapp.presentation.list.CoinPriceListFragment
 
 @ApplicationScope
-@Component(modules = [DataModule::class, ViewModelModule::class])
+@Component(modules = [DataModule::class, ViewModelModule::class, WorkerModule::class])
 interface ApplicationComponent {
 
 

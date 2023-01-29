@@ -2,14 +2,14 @@ package ru.msokolov.cryptomonitorapp.presentation
 
 import android.app.Application
 import androidx.work.Configuration
-import ru.msokolov.cryptomonitorapp.data.workers.RefreshWorkerFactory
+import ru.msokolov.cryptomonitorapp.data.workers.CryptoWorkerFactory
 import ru.msokolov.cryptomonitorapp.di.DaggerApplicationComponent
 import javax.inject.Inject
 
 class CryptoApplication : Application(), Configuration.Provider {
 
     @Inject
-    lateinit var refreshWorkerFactory: RefreshWorkerFactory
+    lateinit var cryptoWorkerFactory: CryptoWorkerFactory
 
     val component by lazy {
         DaggerApplicationComponent.factory()
@@ -23,7 +23,7 @@ class CryptoApplication : Application(), Configuration.Provider {
 
     override fun getWorkManagerConfiguration(): Configuration {
         return Configuration.Builder()
-            .setWorkerFactory(refreshWorkerFactory)
+            .setWorkerFactory(cryptoWorkerFactory)
             .build()
     }
 }
