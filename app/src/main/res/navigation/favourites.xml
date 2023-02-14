@@ -2,19 +2,9 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/coinPriceListFragment">
+    android:id="@+id/favourites"
+    app:startDestination="@id/favouriteFragment">
 
-    <fragment
-        android:id="@+id/coinPriceListFragment"
-        android:name="ru.msokolov.cryptomonitorapp.presentation.list.CoinPriceListFragment"
-        android:label="Crypto Monitor"
-        tools:layout="@layout/fragment_coin_price_list" >
-        <action
-            android:id="@+id/action_coinPriceListFragment_to_coinDetailFragment"
-            app:destination="@id/coinDetailFragment"
-            app:popUpToInclusive="false" />
-    </fragment>
     <fragment
         android:id="@+id/coinDetailFragment"
         android:name="ru.msokolov.cryptomonitorapp.presentation.detail.CoinDetailFragment"
@@ -23,5 +13,14 @@
         <argument
             android:name="fromSymbol"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteFragment"
+        android:label="fragment_favourite"
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_coinDetailFragment"
+            app:destination="@id/coinDetailFragment" />
     </fragment>
 </navigation>

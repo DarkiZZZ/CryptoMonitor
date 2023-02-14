@@ -10,4 +10,9 @@
     <string name="last_updated_label">Обновлено:</string>
     <string name="crypto_icon_desc">Icon of crypto</string>
     <string name="favourites_icon_desc">Add to favourites button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="message_text_test">Text0 text1 text2 text3 text4 text5 text6 text7 text8
+    text9 text10 text11 text12 text13 text14 text15 text16 text17 text18 text19 text20 </string>
 </resources>
