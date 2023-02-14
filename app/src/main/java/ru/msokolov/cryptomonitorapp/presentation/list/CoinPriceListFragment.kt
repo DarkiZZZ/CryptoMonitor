@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.msokolov.cryptomonitorapp.databinding.FragmentCoinPriceListBinding
 import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
-import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
 import ru.msokolov.cryptomonitorapp.presentation.list.adapter.CoinInfoAdapter
@@ -22,7 +21,7 @@ class CoinPriceListFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel by lazy {
-        ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
+        ViewModelProvider(this, viewModelFactory)[CoinListViewModel::class.java]
     }
     private var _binding: FragmentCoinPriceListBinding? = null
     private val binding: FragmentCoinPriceListBinding

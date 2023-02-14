@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
+import ru.msokolov.cryptomonitorapp.presentation.list.CoinListViewModel
 import ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteViewModel
 
 @Module
@@ -12,8 +12,8 @@ interface ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(CoinViewModel::class)
-    fun bindCoinViewModel(viewModel: CoinViewModel): ViewModel
+    @ViewModelKey(CoinListViewModel::class)
+    fun bindCoinViewModel(viewModel: CoinListViewModel): ViewModel
 
     @Binds
     @IntoMap

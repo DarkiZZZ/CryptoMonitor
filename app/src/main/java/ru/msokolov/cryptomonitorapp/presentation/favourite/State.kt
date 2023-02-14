@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp.presentation
+package ru.msokolov.cryptomonitorapp.presentation.favourite
 
 sealed class State {
 

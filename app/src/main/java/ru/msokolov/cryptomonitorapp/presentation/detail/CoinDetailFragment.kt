@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
 import ru.msokolov.cryptomonitorapp.databinding.FragmentCoinDetailBinding
 import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
-import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
+import ru.msokolov.cryptomonitorapp.presentation.list.CoinListViewModel
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
 import javax.inject.Inject
@@ -22,7 +22,7 @@ class CoinDetailFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel by lazy {
-        ViewModelProvider(this, viewModelFactory)[CoinViewModel::class.java]
+        ViewModelProvider(this, viewModelFactory)[CoinListViewModel::class.java]
     }
 
     private val component by lazy {

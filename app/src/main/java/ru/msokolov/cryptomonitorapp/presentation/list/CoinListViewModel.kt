@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp.presentation
+package ru.msokolov.cryptomonitorapp.presentation.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,7 @@ import ru.msokolov.cryptomonitorapp.domain2.usecase.GetCoinInfoUseCase
 import ru.msokolov.cryptomonitorapp.domain2.usecase.LoadDataUseCase
 import javax.inject.Inject
 
-class CoinViewModel @Inject constructor(
+class CoinListViewModel @Inject constructor(
     private val getCoinInfoListUseCase: GetCoinInfoListUseCase,
     private val getCoinInfoUseCase: GetCoinInfoUseCase,
     private val loadDataUseCase: LoadDataUseCase

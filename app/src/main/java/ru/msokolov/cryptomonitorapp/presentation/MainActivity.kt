@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp.presentation.list
+package ru.msokolov.cryptomonitorapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
