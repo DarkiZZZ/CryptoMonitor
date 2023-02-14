@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.msokolov.cryptomonitorapp.databinding.FragmentCoinPriceListBinding
-import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
+import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
 import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
@@ -77,7 +77,7 @@ class CoinPriceListFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.coinInfoList.observe(viewLifecycleOwner) {
+        viewModel.coinInfoList.observe(viewLifecycleOwner) { it->
             coinAdapter.submitList(it)
         }
     }

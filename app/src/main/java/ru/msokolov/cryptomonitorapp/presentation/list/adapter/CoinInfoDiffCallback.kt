@@ -1,7 +1,7 @@
 package ru.msokolov.cryptomonitorapp.presentation.list.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
+import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
 
 object CoinInfoDiffCallback : DiffUtil.ItemCallback<CoinInfoEntity>() {
 

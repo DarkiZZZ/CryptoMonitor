@@ -40,6 +40,10 @@ android {
 }
 
 dependencies {
+
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
+
     implementation rootProject.ext.dependencies.coreKtx
     implementation rootProject.ext.dependencies.appcompat
     implementation rootProject.ext.dependencies.recyclerview

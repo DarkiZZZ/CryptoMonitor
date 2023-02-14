@@ -8,8 +8,8 @@ import androidx.work.WorkManager
 import ru.msokolov.cryptomonitorapp.data.database.dao.CoinInfoDao
 import ru.msokolov.cryptomonitorapp.data.mappers.CoinMapper
 import ru.msokolov.cryptomonitorapp.data.workers.refreshdata.RefreshDataWorker
-import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
-import ru.msokolov.cryptomonitorapp.domain.CoinRepository
+import ru.msokolov.cryptomonitorapp.domain2.CoinRepository
+import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
 import javax.inject.Inject
 
 class CoinRepositoryImpl @Inject constructor(

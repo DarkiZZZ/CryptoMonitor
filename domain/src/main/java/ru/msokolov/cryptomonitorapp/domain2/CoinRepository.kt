@@ -1,6 +1,7 @@
-package ru.msokolov.cryptomonitorapp.domain
+package ru.msokolov.cryptomonitorapp.domain2
 
 import androidx.lifecycle.LiveData
+import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
 
 interface CoinRepository {
 

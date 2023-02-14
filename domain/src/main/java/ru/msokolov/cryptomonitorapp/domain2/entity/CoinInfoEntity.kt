@@ -1,4 +1,4 @@
-package ru.msokolov.cryptomonitorapp.domain
+package ru.msokolov.cryptomonitorapp.domain2.entity
 
 
 data class CoinInfoEntity(

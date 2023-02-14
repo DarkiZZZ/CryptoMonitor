@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
 import ru.msokolov.cryptomonitorapp.databinding.FragmentCoinDetailBinding
-import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
+import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
 import ru.msokolov.cryptomonitorapp.presentation.CoinViewModel
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory

@@ -5,7 +5,7 @@ import ru.msokolov.cryptomonitorapp.data.database.models.CoinInfoDbModel
 import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinInfoDto
 import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinInfoJsonContainerDto
 import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinNamesListDto
-import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity
+import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
@@ -48,16 +48,17 @@ class CoinMapper @Inject constructor() {
         }?.joinToString(",") ?: ""
     }
 
-    fun mapDbModelToEntity(dbModel: CoinInfoDbModel) = CoinInfoEntity(
-        fromSymbol = dbModel.fromSymbol,
-        toSymbol = dbModel.toSymbol,
-        price = dbModel.price,
-        lastUpdate = convertTimestampToTime(dbModel.lastUpdate),
-        highDay = dbModel.highDay,
-        lowDay = dbModel.lowDay,
-        lastMarket = dbModel.lastMarket,
-        imageUrl = dbModel.imageUrl
-    )
+    fun mapDbModelToEntity(dbModel: CoinInfoDbModel) =
+        CoinInfoEntity(
+            fromSymbol = dbModel.fromSymbol,
+            toSymbol = dbModel.toSymbol,
+            price = dbModel.price,
+            lastUpdate = convertTimestampToTime(dbModel.lastUpdate),
+            highDay = dbModel.highDay,
+            lowDay = dbModel.lowDay,
+            lastMarket = dbModel.lastMarket,
+            imageUrl = dbModel.imageUrl
+        )
 
     private fun convertTimestampToTime(timestamp: Long?): String {
         if (timestamp == null) return ""
