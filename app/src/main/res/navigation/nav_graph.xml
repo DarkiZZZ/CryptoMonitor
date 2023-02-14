@@ -14,6 +14,9 @@
             android:id="@+id/action_coinPriceListFragment_to_coinDetailFragment"
             app:destination="@id/coinDetailFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_coinPriceListFragment_to_favouriteFragment"
+            app:destination="@id/favouriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/coinDetailFragment"
@@ -22,5 +25,14 @@
         <argument
             android:name="fromSymbol"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteFragment"
+        android:label="fragment_favourite"
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_coinDetailFragment"
+            app:destination="@id/coinDetailFragment" />
     </fragment>
 </navigation>
