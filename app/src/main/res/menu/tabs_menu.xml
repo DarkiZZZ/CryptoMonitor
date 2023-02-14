@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/cryptoFeed"
+        android:title="@string/crypto_feed"
+        android:icon="@drawable/ic_list"/>
+    <item android:id="@+id/favourites"
+        android:title="@string/favourites"
+        android:icon="@drawable/ic_favourite"/>
+    <item android:id="@+id/chat"
+        android:title="@string/chat"
+        android:icon="@drawable/ic_message"/>
+    <item android:id="@+id/profile"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_profile"/>
+</menu>
