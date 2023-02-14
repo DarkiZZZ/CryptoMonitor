@@ -5,6 +5,7 @@ import dagger.BindsInstance
 import dagger.Component
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.detail.CoinDetailFragment
+import ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteFragment
 import ru.msokolov.cryptomonitorapp.presentation.list.CoinPriceListFragment
 
 @ApplicationScope
@@ -15,6 +16,7 @@ interface ApplicationComponent {
     fun inject(fragment: CoinPriceListFragment)
     fun inject(fragment: CoinDetailFragment)
     fun inject(application: CryptoApplication)
+    fun inject(fragment: FavouriteFragment)
 
     @Component.Factory
     interface Factory{

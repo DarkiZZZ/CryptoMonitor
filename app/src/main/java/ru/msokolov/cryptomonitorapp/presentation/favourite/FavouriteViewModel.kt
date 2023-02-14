@@ -1,6 +1,7 @@
 package ru.msokolov.cryptomonitorapp.presentation.favourite
 
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class FavouriteViewModel: ViewModel() {
+class FavouriteViewModel  @Inject constructor(): ViewModel() {
 }

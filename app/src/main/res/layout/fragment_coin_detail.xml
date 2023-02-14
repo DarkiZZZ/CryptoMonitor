@@ -17,6 +17,17 @@
         tools:src="@mipmap/ic_launcher"
         android:contentDescription="@string/crypto_icon_desc" />
 
+    <ImageView
+        android:id="@+id/favouriteImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="31dp"
+        tools:src="@drawable/favourite_not_added"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivLogoCoin"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/favourites_icon_desc" />
+
     <TextView
         android:id="@+id/tvFromSymbol"
         android:layout_width="wrap_content"
