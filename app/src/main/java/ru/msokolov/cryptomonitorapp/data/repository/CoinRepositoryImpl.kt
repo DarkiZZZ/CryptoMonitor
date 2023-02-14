@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
-import ru.msokolov.cryptomonitorapp.data.database.CoinInfoDao
+import ru.msokolov.cryptomonitorapp.data.database.dao.CoinInfoDao
 import ru.msokolov.cryptomonitorapp.data.mappers.CoinMapper
 import ru.msokolov.cryptomonitorapp.data.workers.refreshdata.RefreshDataWorker
 import ru.msokolov.cryptomonitorapp.domain.CoinInfoEntity

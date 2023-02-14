@@ -1,7 +1,7 @@
 package ru.msokolov.cryptomonitorapp.data.mappers
 
 import com.google.gson.Gson
-import ru.msokolov.cryptomonitorapp.data.database.CoinInfoDbModel
+import ru.msokolov.cryptomonitorapp.data.database.models.CoinInfoDbModel
 import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinInfoDto
 import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinInfoJsonContainerDto
 import ru.msokolov.cryptomonitorapp.data.network.crypto.models.CoinNamesListDto

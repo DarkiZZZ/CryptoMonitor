@@ -4,10 +4,9 @@ import android.content.Context
 import android.util.Log
 import androidx.work.*
 import kotlinx.coroutines.delay
-import ru.msokolov.cryptomonitorapp.data.database.CoinInfoDao
+import ru.msokolov.cryptomonitorapp.data.database.dao.CoinInfoDao
 import ru.msokolov.cryptomonitorapp.data.mappers.CoinMapper
 import ru.msokolov.cryptomonitorapp.data.network.crypto.CryptoApiService
-import ru.msokolov.cryptomonitorapp.data.network.currency.CurrencyApiService
 import javax.inject.Inject
 
 class RefreshDataWorker (

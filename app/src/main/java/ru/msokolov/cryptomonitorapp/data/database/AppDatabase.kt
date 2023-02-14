@@ -4,8 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import ru.msokolov.cryptomonitorapp.data.database.dao.CoinInfoDao
+import ru.msokolov.cryptomonitorapp.data.database.dao.FavouriteCoinDao
+import ru.msokolov.cryptomonitorapp.data.database.models.CoinInfoDbModel
+import ru.msokolov.cryptomonitorapp.data.database.models.FavouriteCoinDbModel
 
-@Database(entities = [CoinInfoDbModel::class], version = 4, exportSchema = false)
+@Database(entities = [CoinInfoDbModel::class, FavouriteCoinDbModel::class], version = 6, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     companion object {
 
@@ -30,4 +34,5 @@ abstract class AppDatabase : RoomDatabase() {
     }
 
     abstract fun coinPriceInfoDao(): CoinInfoDao
+    abstract fun favouriteCoinDao(): FavouriteCoinDao
 }

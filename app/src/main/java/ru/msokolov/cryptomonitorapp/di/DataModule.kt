@@ -5,7 +5,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import ru.msokolov.cryptomonitorapp.data.database.AppDatabase
-import ru.msokolov.cryptomonitorapp.data.database.CoinInfoDao
+import ru.msokolov.cryptomonitorapp.data.database.dao.CoinInfoDao
 import ru.msokolov.cryptomonitorapp.data.network.ApiFactory
 import ru.msokolov.cryptomonitorapp.data.network.crypto.CryptoApiService
 import ru.msokolov.cryptomonitorapp.data.repository.CoinRepositoryImpl
@@ -24,7 +24,7 @@ interface DataModule {
         @ApplicationScope
         fun provideCoinInfoDao(
             application: Application
-        ): CoinInfoDao{
+        ): CoinInfoDao {
             return AppDatabase.getInstance(application).coinPriceInfoDao()
         }
 
