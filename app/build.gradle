@@ -57,9 +57,6 @@ dependencies {
     implementation rootProject.ext.dependencies.roomKtx
     kapt rootProject.ext.dependencies.roomCompiler
 
-    implementation rootProject.ext.dependencies.retrofitRuntime
-    implementation rootProject.ext.dependencies.retrofitGson
-
     implementation rootProject.ext.dependencies.navKtx
     implementation rootProject.ext.dependencies.navUiKtx
 

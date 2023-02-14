@@ -26,7 +26,7 @@ ext {
     dependencies.material = 'com.google.android.material:material:1.8.0'
     dependencies.constraintlayout = 'androidx.constraintlayout:constraintlayout:2.1.4'
     dependencies.cardView = "androidx.cardview:cardview:1.0.0"
-    dependencies.workManager = "androidx.work:work-runtime-ktx:2.7.1"
+    dependencies.workManager = "androidx.work:work-runtime-ktx:2.8.0"
     dependencies.picasso = "com.squareup.picasso:picasso:2.71828"
 
     dependencies.junit = "junit:junit:4.13.2"
