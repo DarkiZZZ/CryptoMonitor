@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    //id 'com.android.application'
 }
 
 android {
@@ -56,4 +58,7 @@ dependencies {
     implementation rootProject.ext.dependencies.roomRuntime
     implementation rootProject.ext.dependencies.roomKtx
     kapt rootProject.ext.dependencies.roomCompiler
+
+    implementation platform (rootProject.ext.dependencies.firebase)
+    implementation rootProject.ext.dependencies.firebaseAnalytics
 }
