@@ -1,10 +1,13 @@
 package ru.msokolov.cryptomonitorapp.domain2.usecase
 
+import androidx.lifecycle.LiveData
 import ru.msokolov.cryptomonitorapp.domain2.FirebaseRepository
+import ru.msokolov.cryptomonitorapp.domain2.entity.StatusEntity
+import javax.inject.Inject
 
-class GetAuthStatusUseCase(val repository: FirebaseRepository) {
+class GetAuthStatusUseCase @Inject constructor(val repository: FirebaseRepository) {
 
-    operator fun invoke(){
-        repository.getAuthenticationStatus()
+    operator fun invoke(): LiveData<StatusEntity> {
+        return repository.getAuthenticationStatus()
     }
 }

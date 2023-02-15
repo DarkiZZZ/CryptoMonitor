@@ -3,7 +3,9 @@ package ru.msokolov.cryptomonitorapp.di
 import dagger.Binds
 import dagger.Module
 import ru.msokolov.cryptomonitorapp.data.repository.CoinRepositoryImpl
+import ru.msokolov.cryptomonitorapp.data.repository.FirebaseRepositoryImpl
 import ru.msokolov.cryptomonitorapp.domain2.CoinRepository
+import ru.msokolov.cryptomonitorapp.domain2.FirebaseRepository
 
 @Module
 interface DomainModule {
@@ -11,5 +13,9 @@ interface DomainModule {
     @Binds
     @ApplicationScope
     fun bindCoinRepository(impl: CoinRepositoryImpl): CoinRepository
+
+    @Binds
+    @ApplicationScope
+    fun bindFirebaseRepository(impl: FirebaseRepositoryImpl): FirebaseRepository
 
 }
