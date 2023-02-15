@@ -57,4 +57,6 @@ ext {
 
     dependencies.firebase = "com.google.firebase:firebase-bom:31.2.1"
     dependencies.firebaseAnalytics = "com.google.firebase:firebase-analytics-ktx"
+    dependencies.firebaseAuth = "com.google.firebase:firebase-auth"
+    dependencies.firebaseDatabase = "com.google.firebase:firebase-database-ktx"
 }

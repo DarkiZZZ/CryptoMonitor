@@ -61,4 +61,6 @@ dependencies {
 
     implementation platform (rootProject.ext.dependencies.firebase)
     implementation rootProject.ext.dependencies.firebaseAnalytics
+    implementation rootProject.ext.dependencies.firebaseAuth
+    implementation rootProject.ext.dependencies.firebaseDatabase
 }
