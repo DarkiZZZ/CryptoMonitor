@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         ViewModelProvider(this, viewModelFactory)[MainActivityViewModel::class.java]
     }
     private val component by lazy {
-        (this.application as CryptoApplication).component
+        (application as CryptoApplication).component
     }
 
     private var navController: NavController? = null
