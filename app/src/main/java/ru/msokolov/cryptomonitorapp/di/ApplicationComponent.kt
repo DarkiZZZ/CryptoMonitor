@@ -7,6 +7,7 @@ import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.detail.CoinDetailFragment
 import ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteFragment
 import ru.msokolov.cryptomonitorapp.presentation.list.CoinPriceListFragment
+import ru.msokolov.cryptomonitorapp.presentation.splash.SplashFragment
 
 @ApplicationScope
 @Component(modules = [DataModule::class, DomainModule::class, ViewModelModule::class, WorkerModule::class])
@@ -17,6 +18,7 @@ interface ApplicationComponent {
     fun inject(fragment: CoinDetailFragment)
     fun inject(application: CryptoApplication)
     fun inject(fragment: FavouriteFragment)
+    fun inject(fragment: SplashFragment)
 
     @Component.Factory
     interface Factory{

@@ -5,8 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import ru.msokolov.cryptomonitorapp.domain2.FirebaseRepository
 import ru.msokolov.cryptomonitorapp.domain2.entity.StatusEntity
+import javax.inject.Inject
 
-class FirebaseRepositoryImpl: FirebaseRepository {
+class FirebaseRepositoryImpl @Inject constructor(): FirebaseRepository {
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val isAuthorized: MutableLiveData<StatusEntity> = MutableLiveData()

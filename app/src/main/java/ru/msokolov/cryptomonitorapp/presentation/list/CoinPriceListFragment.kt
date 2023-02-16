@@ -26,7 +26,6 @@ class CoinPriceListFragment : Fragment() {
     private var _binding: FragmentCoinPriceListBinding? = null
     private val binding: FragmentCoinPriceListBinding
         get() = _binding ?: throw RuntimeException("FragmentCoinPriceListBinding is NULL")
-
     private val component by lazy {
         (requireActivity().application as CryptoApplication).component
     }

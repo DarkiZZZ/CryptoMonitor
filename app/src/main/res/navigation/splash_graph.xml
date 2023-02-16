@@ -14,5 +14,10 @@
         android:id="@+id/mainActivity"
         android:name="ru.msokolov.cryptomonitorapp.presentation.MainActivity"
         android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+        tools:layout="@layout/activity_main">
+        <argument
+            android:name="isAuthorized"
+            app:argType="boolean"/>
+
+    </activity>
 </navigation>

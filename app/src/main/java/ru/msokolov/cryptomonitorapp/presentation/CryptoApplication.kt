@@ -15,7 +15,6 @@ class CryptoApplication : Application(), Configuration.Provider {
         DaggerApplicationComponent.factory()
             .create(this)
     }
-
     override fun onCreate() {
         component.inject(this)
         super.onCreate()
