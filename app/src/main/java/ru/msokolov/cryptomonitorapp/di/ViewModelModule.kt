@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import ru.msokolov.cryptomonitorapp.presentation.list.CoinListViewModel
+import ru.msokolov.cryptomonitorapp.presentation.MainActivityViewModel
 import ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteViewModel
+import ru.msokolov.cryptomonitorapp.presentation.list.CoinListViewModel
 import ru.msokolov.cryptomonitorapp.presentation.splash.SplashViewModel
 
 @Module
@@ -25,4 +26,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(SplashViewModel::class)
     fun bindSplashViewModel(viewModel: SplashViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainActivityViewModel::class)
+    fun bindMainActivityViewModel(viewModel: MainActivityViewModel): ViewModel
 }

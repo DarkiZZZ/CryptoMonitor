@@ -4,6 +4,7 @@ import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
+import ru.msokolov.cryptomonitorapp.presentation.MainActivity
 import ru.msokolov.cryptomonitorapp.presentation.detail.CoinDetailFragment
 import ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteFragment
 import ru.msokolov.cryptomonitorapp.presentation.list.CoinPriceListFragment
@@ -19,6 +20,7 @@ interface ApplicationComponent {
     fun inject(application: CryptoApplication)
     fun inject(fragment: FavouriteFragment)
     fun inject(fragment: SplashFragment)
+    fun inject(activity: MainActivity)
 
     @Component.Factory
     interface Factory{
