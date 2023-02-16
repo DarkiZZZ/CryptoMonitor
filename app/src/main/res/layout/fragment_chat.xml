@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.chat.ChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/isOnlineTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="4dp"
+        tools:text="Online" />
 
-</FrameLayout>
+    <View
+        android:id="@+id/isOnlineView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        tools:background="@drawable/circle_green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/isOnlineTextView"
+        app:layout_constraintBottom_toBottomOf="@id/isOnlineTextView"
+        android:layout_marginStart="4dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:background="@color/light_blue"
+        android:layout_height="0dp"
+        tools:listitem="@layout/my_message_item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/isOnlineTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/messageEditText"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <EditText
+        android:id="@+id/messageEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/your_message_text"
+        android:inputType="textMultiLine"
+        tools:text="@string/message_text_test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/sendImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView"
+        android:autofillHints="false" />
+
+    <ImageView
+        android:id="@+id/sendImageView"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_send"
+        app:layout_constraintStart_toEndOf="@id/messageEditText"
+        app:layout_constraintTop_toTopOf="@id/messageEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/messageEditText"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
