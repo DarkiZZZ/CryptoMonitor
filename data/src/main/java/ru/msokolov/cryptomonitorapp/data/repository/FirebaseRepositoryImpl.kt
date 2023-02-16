@@ -41,7 +41,7 @@ class FirebaseRepositoryImpl @Inject constructor(
     init {
         auth.addAuthStateListener { firebaseAuth ->
             isAuthorized.value = StatusEntity(firebaseAuth.currentUser != null)
-            TODO("firebaseUser.value = userMapper.mapUserDtoToUserNameEntity(firebaseAuth.currentUser)")
+            /*firebaseUser.value = userMapper.mapUserDtoToUserNameEntity(firebaseAuth.currentUser)*/
         }
     }
 }

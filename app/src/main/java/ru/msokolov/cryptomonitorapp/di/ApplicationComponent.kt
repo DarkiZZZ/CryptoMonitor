@@ -8,6 +8,7 @@ import ru.msokolov.cryptomonitorapp.presentation.MainActivity
 import ru.msokolov.cryptomonitorapp.presentation.detail.CoinDetailFragment
 import ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteFragment
 import ru.msokolov.cryptomonitorapp.presentation.list.CoinPriceListFragment
+import ru.msokolov.cryptomonitorapp.presentation.signin.SignInFragment
 import ru.msokolov.cryptomonitorapp.presentation.splash.SplashFragment
 
 @ApplicationScope
@@ -21,6 +22,7 @@ interface ApplicationComponent {
     fun inject(fragment: FavouriteFragment)
     fun inject(fragment: SplashFragment)
     fun inject(activity: MainActivity)
+    fun inject(fragment: SignInFragment)
 
     @Component.Factory
     interface Factory{

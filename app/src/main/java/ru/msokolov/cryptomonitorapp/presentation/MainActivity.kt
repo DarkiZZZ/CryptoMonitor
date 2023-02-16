@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentListener, true)
 
         // updating username in the toolbar
-        TODO("observe username from viewModel")
+        /*observe username from viewModel*/
     }
 
     private val destinationListener = NavController.OnDestinationChangedListener { _, destination, arguments ->
