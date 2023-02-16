@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/friendsListFragment"
-        android:name="ru.msokolov.cryptomonitorapp.presentation.newnav.FriendsListFragment"
+        android:name="ru.msokolov.cryptomonitorapp.presentation.friendslist.FriendsListFragment"
         android:label="fragment_friends_list"
         tools:layout="@layout/fragment_friends_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="ru.msokolov.cryptomonitorapp.presentation.newnav.ChatFragment"
+        android:name="ru.msokolov.cryptomonitorapp.presentation.chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
 </navigation>

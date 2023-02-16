@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="ru.msokolov.cryptomonitorapp.presentation.newnav.SignInFragment"
+        android:name="ru.msokolov.cryptomonitorapp.presentation.signin.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
@@ -21,12 +21,12 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="ru.msokolov.cryptomonitorapp.presentation.newnav.SignUpFragment"
+        android:name="ru.msokolov.cryptomonitorapp.presentation.signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
     <fragment
         android:id="@+id/tabsFragment"
-        android:name="ru.msokolov.cryptomonitorapp.presentation.newnav.TabsFragment"
+        android:name="ru.msokolov.cryptomonitorapp.presentation.tabs.TabsFragment"
         android:label="fragment_tabs"
         tools:layout="@layout/fragment_tabs" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="ru.msokolov.cryptomonitorapp.presentation.newnav.EditProfileFragment"
+        android:name="ru.msokolov.cryptomonitorapp.presentation.profile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
 </navigation>
