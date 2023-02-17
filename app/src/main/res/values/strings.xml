@@ -33,4 +33,10 @@
     <string name="your_message_text">Your message:</string>
     <string name="empty_fields_toast">Please, fill all the fields!</string>
     <string name="success_sign_up_toast">You have been successfully registered! Now you can sign in.</string>
+    <string name="field_created_at">Created at</string>
+    <string name="field_username">Username</string>
+    <string name="field_email">Email</string>
+    <string name="profile_title_hint">Title</string>
+    <string name="action_edit_profile">Edit profile</string>
+    <string name="action_logout">Logout</string>
 </resources>
