@@ -18,7 +18,7 @@ class SignUpViewModel @Inject constructor(private val signUpUseCase: SignUpUseCa
     }
 
     fun signUp(email: String, password: String, firstName: String, lastName: String, age: String) {
-        if (isFieldsEmpty(email, password, firstName, lastName, age)) {
+        if (areFieldsEmpty(email, password, firstName, lastName, age)) {
             _emptyFieldsListener.value = Unit
             return
         }
@@ -26,14 +26,14 @@ class SignUpViewModel @Inject constructor(private val signUpUseCase: SignUpUseCa
         signUpUseCase(signUpUserEntity = signUpUserEntity)
     }
 
-    private fun isFieldsEmpty(
+    private fun areFieldsEmpty(
         email: String,
         password: String,
         firstName: String,
         lastName: String,
         age: String
     ): Boolean{
-        return !(email.isBlank()
+        return (email.isBlank()
                 || password.isBlank()
                 || firstName.isBlank()
                 || lastName.isBlank()

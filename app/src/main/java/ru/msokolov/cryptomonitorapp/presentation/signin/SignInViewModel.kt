@@ -18,7 +18,7 @@ class SignInViewModel @Inject constructor(private val signInUseCase: SignInUseCa
     }
 
     fun signIn(email: String, password: String) {
-        if (isFieldsEmpty(email, password)) {
+        if (areFieldsEmpty(email, password)) {
             _emptyFieldsListener.value = Unit
             return
         }
@@ -26,8 +26,8 @@ class SignInViewModel @Inject constructor(private val signInUseCase: SignInUseCa
         signInUseCase(userEntity = signInUserEntity)
     }
 
-    private fun isFieldsEmpty(email: String, password: String): Boolean {
-        return !(email.isBlank() || password.isBlank())
+    private fun areFieldsEmpty(email: String, password: String): Boolean {
+        return (email.isBlank() || password.isBlank())
     }
 
     private fun mapToSignInUserEntity(email: String, password: String): SignInUserEntity {
