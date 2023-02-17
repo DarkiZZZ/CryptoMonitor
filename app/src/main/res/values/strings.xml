@@ -32,4 +32,5 @@
     <string name="sign_up_text">Sign Up</string>
     <string name="your_message_text">Your message:</string>
     <string name="empty_fields_toast">Please, fill all the fields!</string>
+    <string name="success_sign_up_toast">You have been successfully registered! Now you can sign in.</string>
 </resources>

@@ -8,8 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.msokolov.cryptomonitorapp.R
 import ru.msokolov.cryptomonitorapp.databinding.FragmentSignInBinding
-import ru.msokolov.cryptomonitorapp.domain.entity.firebase.SignInState
-import ru.msokolov.cryptomonitorapp.domain.entity.firebase.SignUpState
+import ru.msokolov.cryptomonitorapp.domain.entity.firebase.OperationState
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
 import javax.inject.Inject
@@ -37,54 +36,62 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSignInBinding.bind(view)
-        setClickListeners()
+        observeViewModel()
+        setupClickListeners()
     }
 
-    private fun observeViewModel(email: String, password: String){
-        viewModel.login(email, password).observe(viewLifecycleOwner){
+    private fun observeViewModel() {
+        viewModel.getOperationState().observe(viewLifecycleOwner){
             when(it){
-                 is SignInState.Success-> {
-                     toast(it.message)
-                    findNavController().navigate(R.id.action_signInFragment_to_tabsFragment)
-                 }
-                is SignInState.Error -> {
-                    toast(it.message)
+                is OperationState.Success -> {
+                    longToast(it.message)
                 }
-                is SignUpState.Error -> TODO()
-                is SignUpState.Success -> TODO()
+                is OperationState.Error -> {
+                    longToast(it.message)
+                }
+            }
+        }
+        viewModel.emptyFieldsListener.observe(viewLifecycleOwner){
+            if (it != null){
+                shortToast(getString(R.string.empty_fields_toast))
             }
         }
     }
 
-    private fun setClickListeners(){
-        with(binding){
+    private fun setupClickListeners() {
+        with(binding) {
             signInButton.setOnClickListener {
                 val email = emailEditText.text.toString()
                 val password = passwordEditText.text.toString()
-                if(viewModel.isLoginDataCorrect(email, password)){
-                    observeViewModel(email, password)
-                }
-                else{
-                    toast(ERROR_DATA_VALIDATION)
-                }
+                viewModel.signIn(email = email, password = password)
 
             }
             registerTextView.setOnClickListener {
-                toast(TODO_TEXT)
+                goToRegistration(getEmail())
             }
             forgotPasswordTextView.setOnClickListener {
-                toast(TODO_TEXT)
+                shortToast(TODO_TEXT)
             }
         }
     }
 
-    private fun toast(message: String){
+    private fun shortToast(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
-    companion object{
-        private const val ERROR_DATA_VALIDATION = "Please, fill all fields!"
-        private const val TODO_TEXT = "Will come soon"
+    private fun longToast(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 
+    private fun goToRegistration(email: String) = findNavController()
+        .navigate(SignInFragmentDirections.actionSignInFragmentToSignUpFragment(email)
+    )
+
+    private fun getEmail(): String {
+        return binding.emailEditText.text.toString()
+    }
+
+    companion object {
+        private const val TODO_TEXT = "Will come soon"
+    }
 }
