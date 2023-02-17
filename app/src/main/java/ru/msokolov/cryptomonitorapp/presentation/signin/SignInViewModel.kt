@@ -2,9 +2,9 @@ package ru.msokolov.cryptomonitorapp.presentation.signin
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import ru.msokolov.cryptomonitorapp.domain2.entity.SignInUserEntity
-import ru.msokolov.cryptomonitorapp.domain2.entity.SignInState
-import ru.msokolov.cryptomonitorapp.domain2.usecase.SignInUseCase
+import ru.msokolov.cryptomonitorapp.domain.entity.firebase.SignInUserEntity
+import ru.msokolov.cryptomonitorapp.domain.entity.firebase.SignInState
+import ru.msokolov.cryptomonitorapp.domain.usecase.firebase.SignInUseCase
 import javax.inject.Inject
 
 class SignInViewModel @Inject constructor(val signInUseCase: SignInUseCase): ViewModel() {
@@ -18,7 +18,7 @@ class SignInViewModel @Inject constructor(val signInUseCase: SignInUseCase): Vie
         return isInputEmailAndPasswordError(email, password)
     }
 
-    private fun mapToSignInUserEntity(email: String, password: String): SignInUserEntity{
+    private fun mapToSignInUserEntity(email: String, password: String): SignInUserEntity {
         val editedEmail = email.trim()
         val editedPassword = password.trim()
         return SignInUserEntity(email = editedEmail, password = editedPassword)

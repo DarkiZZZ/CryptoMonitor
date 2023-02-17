@@ -73,4 +73,9 @@ dependencies {
     testImplementation rootProject.ext.dependencies.junit
     androidTestImplementation rootProject.ext.dependencies.junitTest
     androidTestImplementation rootProject.ext.dependencies.espressoCore
+
+    implementation platform (rootProject.ext.dependencies.firebase)
+    implementation rootProject.ext.dependencies.firebaseAnalytics
+    implementation rootProject.ext.dependencies.firebaseAuth
+    implementation rootProject.ext.dependencies.firebaseDatabase
 }

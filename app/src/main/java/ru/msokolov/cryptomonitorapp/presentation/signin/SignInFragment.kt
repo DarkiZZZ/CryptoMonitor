@@ -8,7 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.msokolov.cryptomonitorapp.R
 import ru.msokolov.cryptomonitorapp.databinding.FragmentSignInBinding
-import ru.msokolov.cryptomonitorapp.domain2.entity.SignInState
+import ru.msokolov.cryptomonitorapp.domain.entity.firebase.SignInState
+import ru.msokolov.cryptomonitorapp.domain.entity.firebase.SignUpState
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
 import javax.inject.Inject
@@ -49,6 +50,8 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
                 is SignInState.Error -> {
                     toast(it.message)
                 }
+                is SignUpState.Error -> TODO()
+                is SignUpState.Success -> TODO()
             }
         }
     }

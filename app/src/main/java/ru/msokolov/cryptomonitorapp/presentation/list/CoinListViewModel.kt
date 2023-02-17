@@ -2,10 +2,10 @@ package ru.msokolov.cryptomonitorapp.presentation.list
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
-import ru.msokolov.cryptomonitorapp.domain2.usecase.GetCoinInfoListUseCase
-import ru.msokolov.cryptomonitorapp.domain2.usecase.GetCoinInfoUseCase
-import ru.msokolov.cryptomonitorapp.domain2.usecase.LoadDataUseCase
+import ru.msokolov.cryptomonitorapp.domain.entity.database.CoinInfoEntity
+import ru.msokolov.cryptomonitorapp.domain.usecase.database.GetCoinInfoListUseCase
+import ru.msokolov.cryptomonitorapp.domain.usecase.database.GetCoinInfoUseCase
+import ru.msokolov.cryptomonitorapp.domain.usecase.firebase.LoadDataUseCase
 import javax.inject.Inject
 
 class CoinListViewModel @Inject constructor(

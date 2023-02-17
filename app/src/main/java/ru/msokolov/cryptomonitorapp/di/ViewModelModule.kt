@@ -8,6 +8,7 @@ import ru.msokolov.cryptomonitorapp.presentation.MainActivityViewModel
 import ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteViewModel
 import ru.msokolov.cryptomonitorapp.presentation.list.CoinListViewModel
 import ru.msokolov.cryptomonitorapp.presentation.signin.SignInViewModel
+import ru.msokolov.cryptomonitorapp.presentation.signup.SignUpViewModel
 import ru.msokolov.cryptomonitorapp.presentation.splash.SplashViewModel
 
 @Module
@@ -37,4 +38,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(SignInViewModel::class)
     fun bindSignInViewModel(viewModel: SignInViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignUpViewModel::class)
+    fun bindSignUpViewModel(viewModel: SignUpViewModel): ViewModel
 }

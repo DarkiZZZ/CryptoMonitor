@@ -37,6 +37,7 @@ android {
 dependencies {
 
     implementation project(path: ':domain')
+    implementation project(path: ':app')
 
     testImplementation rootProject.ext.dependencies.junit
     androidTestImplementation rootProject.ext.dependencies.junitTest

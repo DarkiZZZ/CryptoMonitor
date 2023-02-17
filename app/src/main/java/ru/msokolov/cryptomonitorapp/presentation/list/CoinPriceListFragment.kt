@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.msokolov.cryptomonitorapp.databinding.FragmentCoinPriceListBinding
-import ru.msokolov.cryptomonitorapp.domain2.entity.CoinInfoEntity
+import ru.msokolov.cryptomonitorapp.domain.entity.database.CoinInfoEntity
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
 import ru.msokolov.cryptomonitorapp.presentation.list.adapter.CoinInfoAdapter
