@@ -7,6 +7,7 @@ import dagger.multibindings.IntoMap
 import ru.msokolov.cryptomonitorapp.presentation.MainActivityViewModel
 import ru.msokolov.cryptomonitorapp.presentation.favourite.FavouriteViewModel
 import ru.msokolov.cryptomonitorapp.presentation.list.CoinListViewModel
+import ru.msokolov.cryptomonitorapp.presentation.profile.ProfileViewModel
 import ru.msokolov.cryptomonitorapp.presentation.signin.SignInViewModel
 import ru.msokolov.cryptomonitorapp.presentation.signup.SignUpViewModel
 import ru.msokolov.cryptomonitorapp.presentation.splash.SplashViewModel
@@ -43,4 +44,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(SignUpViewModel::class)
     fun bindSignUpViewModel(viewModel: SignUpViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileViewModel::class)
+    fun bindProfileViewModel(viewModel: ProfileViewModel): ViewModel
 }

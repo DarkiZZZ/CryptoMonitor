@@ -1,60 +1,75 @@
 package ru.msokolov.cryptomonitorapp.presentation.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.navOptions
 import ru.msokolov.cryptomonitorapp.R
+import ru.msokolov.cryptomonitorapp.databinding.FragmentProfileBinding
+import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
+import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
+import ru.msokolov.cryptomonitorapp.presentation.utils.findTopNavController
+import ru.msokolov.cryptomonitorapp.presentation.utils.shortToast
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+    private val viewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[ProfileViewModel::class.java]
+    }
+
+    private lateinit var binding: FragmentProfileBinding
+
+    private val component by lazy {
+        (requireActivity().application as CryptoApplication).component
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        component.inject(this)
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentProfileBinding.bind(view)
+        observeViewModel()
+        setupClickListeners()
+
+    }
+
+    private fun setupClickListeners(){
+        binding.editProfileButton.setOnClickListener {
+            shortToast(TODO_TEXT)
+        }
+        binding.logoutButton.setOnClickListener {
+            onLogoutButtonPressed()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+    /*private fun onEditProfileButtonPressed() {
+        findTopNavController().navigate(R.id.editProfileFragment)
+    }*/
+
+    private fun observeViewModel() {
+        viewModel.getCallback().observe(viewLifecycleOwner) {
+            if (it != null) {
+                findTopNavController().navigate(R.id.signInFragment, null, navOptions {
+                    popUpTo(R.id.tabsFragment) {
+                        inclusive = true
+                    }
+                })
+            }
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun onLogoutButtonPressed() {
+        viewModel.logout()
+    }
+
+    companion object{
+        private const val TODO_TEXT = "Will come soon"
     }
 }
