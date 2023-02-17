@@ -38,7 +38,6 @@ interface DataModule {
         }
 
         @Provides
-        @UsersDBRef
         fun provideUsersDatabaseReference(): DatabaseReference{
             return Firebase.database.getReference("Users")
         }

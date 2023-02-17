@@ -21,15 +21,15 @@ interface DomainModule {
     fun bindCoinRepository(impl: CoinRepositoryImpl): CoinRepository
 
     @Binds
-    @Singleton
+    @ApplicationScope
     fun bindSignUpFirebaseRepository(impl: SignUpFirebaseRepositoryImpl): SignUpFirebaseRepository
 
     @Binds
-    @Singleton
+    @ApplicationScope
     fun bindSignInFirebaseRepository(impl: SignInFirebaseRepositoryImpl): SignInFirebaseRepository
 
     @Binds
-    @Singleton
+    @ApplicationScope
     fun bindAuthorizationFirebaseRepository(impl: AuthorizationFirebaseRepositoryImpl): AuthorizationFirebaseRepository
 
 }

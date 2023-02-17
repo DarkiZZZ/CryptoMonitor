@@ -5,14 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import ru.msokolov.cryptomonitorapp.data.firebase.mapper.SignUpUserMapper
-import ru.msokolov.cryptomonitorapp.di.UsersDBRef
 import ru.msokolov.cryptomonitorapp.domain.entity.firebase.OperationState
 import ru.msokolov.cryptomonitorapp.domain.entity.firebase.SignUpUserEntity
 import ru.msokolov.cryptomonitorapp.domain.repository.firebase.SignUpFirebaseRepository
 import javax.inject.Inject
 
 class SignUpFirebaseRepositoryImpl @Inject constructor(
-    @UsersDBRef
     private val userDbRef: DatabaseReference,
     private val auth: FirebaseAuth,
     private val mapper: SignUpUserMapper
