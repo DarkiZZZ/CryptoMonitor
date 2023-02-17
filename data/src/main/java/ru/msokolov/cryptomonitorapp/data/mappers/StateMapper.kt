@@ -1,16 +1,16 @@
 package ru.msokolov.cryptomonitorapp.data.mappers
 
-import ru.msokolov.cryptomonitorapp.domain2.entity.StateEntity
+import ru.msokolov.cryptomonitorapp.domain2.entity.SignInState
 import javax.inject.Inject
 
 class StateMapper @Inject constructor() {
 
-    fun mapToSuccessStateEntity(): StateEntity {
-        return StateEntity.Success(SUCCESS_MESSAGE)
+    fun mapToSuccessStateEntity(): SignInState {
+        return SignInState.Success(SUCCESS_MESSAGE)
     }
 
-    fun mapToErrorStateEntity(): StateEntity{
-        return StateEntity.Error(ERROR_MESSAGE)
+    fun mapToErrorStateEntity(): SignInState{
+        return SignInState.Error(ERROR_MESSAGE)
     }
 
     companion object{
