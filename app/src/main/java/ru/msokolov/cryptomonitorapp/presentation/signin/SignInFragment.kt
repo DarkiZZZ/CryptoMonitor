@@ -1,8 +1,8 @@
 package ru.msokolov.cryptomonitorapp.presentation.signin
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -11,6 +11,8 @@ import ru.msokolov.cryptomonitorapp.databinding.FragmentSignInBinding
 import ru.msokolov.cryptomonitorapp.domain.entity.firebase.OperationState
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
+import ru.msokolov.cryptomonitorapp.presentation.utils.longToast
+import ru.msokolov.cryptomonitorapp.presentation.utils.shortToast
 import javax.inject.Inject
 
 
@@ -44,7 +46,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         viewModel.getOperationState().observe(viewLifecycleOwner){
             when(it){
                 is OperationState.Success -> {
-                    longToast(it.message)
+                    Log.d(TAG, it.message)
                 }
                 is OperationState.Error -> {
                     longToast(it.message)
@@ -64,7 +66,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
                 val email = emailEditText.text.toString()
                 val password = passwordEditText.text.toString()
                 viewModel.signIn(email = email, password = password)
-
+                goToTabs()
             }
             registerTextView.setOnClickListener {
                 goToRegistration(getEmail())
@@ -75,23 +77,19 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         }
     }
 
-    private fun shortToast(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun longToast(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-    }
-
     private fun goToRegistration(email: String) = findNavController()
         .navigate(SignInFragmentDirections.actionSignInFragmentToSignUpFragment(email)
     )
+
+    private fun goToTabs() = findNavController()
+        .navigate(SignInFragmentDirections.actionSignInFragmentToTabsFragment())
 
     private fun getEmail(): String {
         return binding.emailEditText.text.toString()
     }
 
     companion object {
+        private const val TAG = "SIGN IN FRAGMENT"
         private const val TODO_TEXT = "Will come soon"
     }
 }
