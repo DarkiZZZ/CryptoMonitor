@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ru.msokolov.cryptomonitorapp.R
+import ru.msokolov.cryptomonitorapp.domain.entity.firebase.OperationState
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.MainActivity
 import ru.msokolov.cryptomonitorapp.presentation.MainActivityArgs
@@ -36,21 +37,19 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private fun observeViewModel(){
-        viewModel.isAuthorized().observe(viewLifecycleOwner){ status ->
-            if (status != null){
-                launchMainScreen(status.isAuthorized)
+        viewModel.getOperationState().observe(viewLifecycleOwner){
+            when(it){
+                is OperationState.Success -> launchMainScreen(isAuthorized = true)
+                is OperationState.Error -> launchMainScreen(isAuthorized = false)
             }
         }
     }
 
     private fun launchMainScreen(isAuthorized: Boolean) {
         val intent = Intent(requireContext(), MainActivity::class.java)
-
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-
         val args = MainActivityArgs(isAuthorized)
         intent.putExtras(args.toBundle())
         startActivity(intent)
     }
-
 }
