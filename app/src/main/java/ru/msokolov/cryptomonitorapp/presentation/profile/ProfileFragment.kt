@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navOptions
 import ru.msokolov.cryptomonitorapp.R
 import ru.msokolov.cryptomonitorapp.databinding.FragmentProfileBinding
+import ru.msokolov.cryptomonitorapp.domain.entity.firebase.OperationState
 import ru.msokolov.cryptomonitorapp.presentation.CryptoApplication
 import ru.msokolov.cryptomonitorapp.presentation.ViewModelFactory
 import ru.msokolov.cryptomonitorapp.presentation.utils.findTopNavController
@@ -54,13 +55,18 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }*/
 
     private fun observeViewModel() {
-        viewModel.getCallback().observe(viewLifecycleOwner) {
-            if (it != null) {
-                findTopNavController().navigate(R.id.signInFragment, null, navOptions {
-                    popUpTo(R.id.tabsFragment) {
-                        inclusive = true
-                    }
-                })
+        viewModel.getOperationState().observe(viewLifecycleOwner) {
+            when (it ) {
+                is OperationState.Success -> {
+                    findTopNavController().navigate(R.id.signInFragment, null, navOptions {
+                        popUpTo(R.id.tabsFragment) {
+                            inclusive = true
+                        }
+                    })
+                }
+                is OperationState.Error -> {
+                    shortToast(getString(R.string.logout_error_text))
+                }
             }
         }
     }

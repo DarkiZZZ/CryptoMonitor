@@ -3,7 +3,7 @@ package ru.msokolov.cryptomonitorapp.domain.repository.firebase
 import androidx.lifecycle.LiveData
 import ru.msokolov.cryptomonitorapp.domain.entity.firebase.OperationState
 
-interface AuthorizationFirebaseRepository: FirebaseRepository {
+interface FirebaseRepository {
 
-    fun authorization()
+    fun getOperationState(): LiveData<OperationState>
 }

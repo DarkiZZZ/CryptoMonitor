@@ -34,9 +34,15 @@
     <string name="empty_fields_toast">Please, fill all the fields!</string>
     <string name="success_sign_up_toast">You have been successfully registered! Now you can sign in.</string>
     <string name="field_created_at">Created at</string>
-    <string name="field_username">Username</string>
+    <string name="field_first_name">First name</string>
     <string name="field_email">Email</string>
     <string name="profile_title_hint">Title</string>
     <string name="action_edit_profile">Edit profile</string>
     <string name="action_logout">Logout</string>
+    <string name="edit_profile_description">You can change information about yourself and save it.</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="field_last_name">Last name</string>
+    <string name="field_age">Age</string>
+    <string name="logout_error_text">Error with logging out. Try again.</string>
 </resources>
