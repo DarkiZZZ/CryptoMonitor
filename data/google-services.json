@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "922691100355",
+    "project_id": "crypto-monitor-82045",
+    "storage_bucket": "crypto-monitor-82045.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922691100355:android:2036e6d52d39e048c40c76",
+        "android_client_info": {
+          "package_name": "ru.msokolov.cryptomonitorapp.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922691100355-ccoqh319jbpfgk3bdr8k46g65rnr14mc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_-s9_vH4HVhkP7VOMNd2PTjq3hqrJjlw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922691100355-ccoqh319jbpfgk3bdr8k46g65rnr14mc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

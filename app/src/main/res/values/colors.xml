@@ -11,4 +11,12 @@
     <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="light_blue">#99E4FB</color>
+    <color name="light_yellow_transparent">#FBF3BD</color>
+    <color name="light_blue_2">#03A9F4</color>
+
+
+    <color name="pale_green">#2BB731</color>
+    <color name="light_red">#FF2B2B</color>
 </resources>

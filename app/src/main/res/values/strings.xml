@@ -10,4 +10,39 @@
     <string name="last_updated_label">Обновлено:</string>
     <string name="crypto_icon_desc">Icon of crypto</string>
     <string name="favourites_icon_desc">Add to favourites button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="message_text_test">Text0 text1 text2 text3 text4 text5 text6 text7 text8
+    text9 text10 text11 text12 text13 text14 text15 text16 text17 text18 text19 text20 </string>
+    <string name="please_wait">Please, wait...</string>
+    <string name="crypto_feed">Feed</string>
+    <string name="favourites">Favourites</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_in_text">Sign In</string>
+    <string name="forgot_password_text">Forgot password?</string>
+    <string name="register_text">Register now</string>
+    <string name="registration_text">Registration</string>
+    <string name="first_name_hint">First name</string>
+    <string name="last_name_hint">Last name</string>
+    <string name="age_hint">How old are you?</string>
+    <string name="sign_up_text">Sign Up</string>
+    <string name="your_message_text">Your message:</string>
+    <string name="empty_fields_toast">Please, fill all the fields!</string>
+    <string name="success_sign_up_toast">You have been successfully registered! Now you can sign in.</string>
+    <string name="field_created_at">Created at</string>
+    <string name="field_first_name">First name</string>
+    <string name="field_email">Email</string>
+    <string name="profile_title_hint">Title</string>
+    <string name="action_edit_profile">Edit profile</string>
+    <string name="action_logout">Logout</string>
+    <string name="edit_profile_description">You can change information about yourself and save it.</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="field_last_name">Last name</string>
+    <string name="field_age">Age</string>
+    <string name="logout_error_text">Error with logging out. Try again.</string>
 </resources>
