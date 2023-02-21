@@ -16,3 +16,6 @@ rootProject.name = "Crypto Monitor App"
 include ':app'
 include ':data'
 include ':domain'
+include ':feature_favourites'
+include ':feature_favourites:favourites_internal'
+include ':feature_favourites:favourites_api'

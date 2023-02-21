@@ -14,6 +14,9 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/feature_favourites" />
+            <option value="$PROJECT_DIR$/feature_favourites/favourites_api" />
+            <option value="$PROJECT_DIR$/feature_favourites/favourites_internal" />
           </set>
         </option>
       </GradleProjectSettings>
