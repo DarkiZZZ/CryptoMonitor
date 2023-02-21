@@ -4,7 +4,6 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
-    //id 'com.android.application'
 }
 
 android {
@@ -38,29 +37,39 @@ dependencies {
 
     implementation project(path: ':domain')
 
-    testImplementation rootProject.ext.dependencies.junit
-    androidTestImplementation rootProject.ext.dependencies.junitTest
-    androidTestImplementation rootProject.ext.dependencies.espressoCore
-    implementation rootProject.ext.dependencies.coreKtx
+    //WorkManager and Ktx
+    implementation(AndroidCore.coreKtx)
+    implementation(AndroidCore.workManager)
 
-    implementation rootProject.ext.dependencies.coroutinesCore
-    implementation rootProject.ext.dependencies.coroutinesAndroid
-    implementation rootProject.ext.dependencies.coroutinesVM
-
-    implementation rootProject.ext.dependencies.workManager
-
-    implementation rootProject.ext.dependencies.daggerInject
-
-    implementation rootProject.ext.dependencies.retrofitRuntime
-    implementation rootProject.ext.dependencies.retrofitGson
+    //Unit and android tests
+    testImplementation(TestLibs.jUnit)
+    androidTestImplementation(TestLibs.androidJUnit)
+    androidTestImplementation(TestLibs.espresso)
 
 
-    implementation rootProject.ext.dependencies.roomRuntime
-    implementation rootProject.ext.dependencies.roomKtx
-    kapt rootProject.ext.dependencies.roomCompiler
+    //Coroutines
+    implementation(Coroutines.coroutinesCore)
+    implementation(Coroutines.coroutinesAndroid)
 
-    implementation platform (rootProject.ext.dependencies.firebase)
-    implementation rootProject.ext.dependencies.firebaseAnalytics
-    implementation rootProject.ext.dependencies.firebaseAuth
-    implementation rootProject.ext.dependencies.firebaseDatabase
+    //ViewModel Lifecycle
+    implementation(Lifecycle.viewModelKtx)
+
+    //Inject annotation for Dagger
+    implementation(Dagger.daggerInject)
+
+    //Retrofit
+    implementation(Network.retrofitCore)
+    implementation(Network.retrofitGson)
+
+
+    //Room DB
+    implementation(Room.roomRuntime)
+    implementation(Room.roomKtx)
+    kapt(Room.roomCompiler)
+
+    //Firebase
+    implementation platform (Firebase.firebase)
+    implementation(Firebase.firebaseAnalytics)
+    implementation(Firebase.firebaseAuth)
+    implementation(Firebase.firebaseDatabase)
 }
