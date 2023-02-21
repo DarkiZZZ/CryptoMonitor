@@ -16,7 +16,3 @@ rootProject.name = "Crypto Monitor App"
 include ':app'
 include ':data'
 include ':domain'
-include ':feature_signin'
-include ':feature_signin:domain'
-include ':feature_signin:data'
-include ':feature_signin:presentation'
